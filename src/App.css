@@ -1,0 +1,132 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+.container img {
+  max-width: 100%; /* Ensure the image fits within its container */
+  height: auto; /* Maintain the aspect ratio */
+  max-height: 400px; /* Set the maximum height of the image */
+}
+.discover-button {
+  margin-bottom: 10px; /* Adjust spacing */
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden; /* Ensure the title doesn't overflow outside the image container */
+}
+
+.discover-title {
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #2f4a13; /* Light pastel background color */
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50; /* Green color */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green color on hover */
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  flex: 1;
+}
+
+.button-container {
+  width: 200px;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+.banList {
+  width: 200px;
+  padding: 20px;
+  background-color: #085804;
+}
+
+.banList h3 {
+  margin-bottom: 10px;
+}
+
+.dog-button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dog-button:hover {
+  background-color: #45a049;
+}
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
