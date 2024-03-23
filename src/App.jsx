@@ -10,6 +10,7 @@ function App() {
   const [label, setLabel] = useState('');
   const [lifeLabel, setLifeLabel] = useState('');
   const [country, setCountry] = useState('');
+  const [breedGroup, setBreedGroup] = useState('');
   const [banlist, setBanlist] = useState([]);
 
   useEffect(() => {
@@ -18,15 +19,24 @@ function App() {
 
   const callAPI = async () => {
     try {
-      const response = await axios.get(API_URL);
-      if (!response.data.length) {
-        throw new Error('Failed to fetch image');
+      let validImage = false;
+      let data = null;
+      while (!validImage) {
+        const response = await axios.get(API_URL);
+        if (!response.data.length) {
+          throw new Error('Failed to fetch image');
+        }
+        data = response.data[0];
+        const { name, life_span, origin, breed_group } = data.breeds[0];
+        if (!banlist.includes(name) && !banlist.includes(life_span) && !banlist.includes(origin) && !banlist.includes(breed_group)) {
+          validImage = true;
+        }
       }
-      const data = response.data[0];
       setCurrentImg(data.url);
       setLabel(data.breeds[0].name);
       setLifeLabel(data.breeds[0].life_span);
-      setCountry(data.breeds[0].origin); // Assuming the API provides the country information
+      setCountry(data.breeds[0].origin);
+      setBreedGroup(data.breeds[0].breed_group);
     } catch (error) {
       console.error('Error fetching image:', error);
     }
@@ -34,17 +44,21 @@ function App() {
 
   const handleImg = () => {
     callAPI();
-    console.log(banlist);
   };
 
   const handleBan = (breedName) => {
-    setBanlist([...banlist, breedName]);
+    if (banlist.includes(breedName)) {
+      const updatedBanlist = banlist.filter(item => item !== breedName);
+      setBanlist(updatedBanlist);
+    } else {
+      setBanlist([...banlist, breedName]);
+    }
   };
 
   return (
     <div className='App'>
       <button onClick={handleImg} className="discover-button">Discover 🐾</button>
-
+      
       <div className='container'>
         <div className="image-container">
           <img src={currentImg} alt="Random Dog" />
@@ -55,6 +69,7 @@ function App() {
         <button onClick={() => handleBan(label)} className="dog-button">{label}</button>
         <button onClick={() => handleBan(lifeLabel)} className="dog-button">{lifeLabel}</button>
         {country && <button onClick={() => handleBan(country)} className="dog-button">{country}</button>}
+        {breedGroup && <button onClick={() => handleBan(breedGroup)} className="dog-button">{breedGroup}</button>}
       </div>
 
       <div className='banList'>
