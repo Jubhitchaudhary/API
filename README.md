@@ -1,10 +1,10 @@
-# Web Development Project 4 - *Name of App Here*
+# Web Development Project 4 - *Discover DOG*
 
-Submitted by: **Your Name Here**
+Submitted by: **Jubhit Chaudhary**
 
-This web app: **insert description**
+This web app: **Discover Dog from API**
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
