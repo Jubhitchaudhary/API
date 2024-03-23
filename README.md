@@ -27,6 +27,7 @@ The following **optional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+https://www.loom.com/share/92b85735abb24725b1c27404f1ef2a9c?sid=39e5ffe6-64ba-4af3-8c5d-d929846056da
 
 
 ## Notes
